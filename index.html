@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<!--
+  四川义云科技有限公司 —— 企业官网首页 v2
+  内容依据 02_Content.md v2；排版依据 01_UI.md v2；信息架构依据 00_Product.md v2
+
+  八个 Section，顺序不可调换：
+  Hero → AI Product → AI Application → AI Implementation
+       → Digital Infrastructure → About → Contact → Footer
+
+  联系方式 / 域名 / 备案号统一在 assets/js/site.config.js 配置，改一处即可。
+  产品展示区的所有产品均为第三方代理 / 合作产品，已按 §5.5 加归属标签与免责说明。
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>四川义云科技有限公司｜企业 AI 产品与应用服务</title>
+<meta name="description" content="四川义云科技有限公司面向企业提供 AI 产品与应用服务，代理与合作 NBBOSS、AI 外呼、零一数字人、厉害猫 AI 等 AI 产品，并提供 AI 应用落地、企业培训与智慧楼宇、智能办公等数字化服务。">
+<meta name="theme-color" content="#080A0F">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="四川义云科技有限公司">
+<meta property="og:title" content="让 AI 和数字技术真正进入企业｜义云科技">
+<meta property="og:description" content="面向企业的 AI 产品、应用与数字化服务。">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+
+<!--
+  配置域名后补充以下两行（02_Content.md：不得臆造事实数据）：
+  <link rel="canonical" href="https://<主域名>/">
+  <meta property="og:url" content="https://<主域名>/">
+  同时建议补充 og:image（1200×630）与 favicon（/favicon.ico）。
+-->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "四川义云科技有限公司",
+  "alternateName": "YIYUN TECHNOLOGY",
+  "description": "面向企业提供 AI 产品与应用服务，从选择合适的工具，到进入真实业务场景。",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "CN",
+    "addressRegion": "四川",
+    "addressLocality": "成都"
+  }
+}
+</script>
+
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+
+<!-- ===================== Header ===================== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html" aria-label="义云科技 首页">
+      <span class="logo-cn">义云科技</span>
+      <span class="logo-en">YIYUN TECHNOLOGY</span>
+    </a>
+    <nav class="nav-desktop" aria-label="主导航">
+      <a href="index.html">首页</a>
+      <a href="#ai-product">AI产品</a>
+      <a href="#ai-application">AI应用</a>
+      <a href="#about">关于我们</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-dark btn-sm btn-contact" href="#contact">聊聊企业需求
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <button class="menu-toggle" id="menuOpen" aria-label="打开菜单" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="移动端导航">
+  <div class="mobile-menu-head">
+    <span class="logo-cn">义云科技</span>
+    <button class="menu-toggle" id="menuClose" aria-label="关闭菜单"><span></span></button>
+  </div>
+  <nav>
+    <a href="index.html">首页</a>
+    <a href="#ai-product">AI产品</a>
+    <a href="#ai-application">AI应用</a>
+    <a href="#about">关于我们</a>
+    <a href="#contact">联系我们</a>
+  </nav>
+  <a class="btn btn-dark" href="#contact">聊聊企业需求
+    <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+</div>
+
+<main id="main">
+
+  <!-- ===================== 01 Hero（全宽纯排版，无装饰视觉） ===================== -->
+  <section class="hero" id="top">
+    <div class="container hero-inner">
+      <p class="eyebrow">YIYUN TECHNOLOGY</p>
+      <h1>让 AI 和数字技术真正进入企业</h1>
+      <p class="hero-desc">面向企业提供 AI 产品、应用与数字化服务，从选择合适的工具，到进入真实业务场景。</p>
+      <div class="hero-cta">
+        <a class="btn btn-accent" href="#ai-product">探索 AI 产品</a>
+        <a class="btn btn-ghost" href="#contact">聊聊企业需求
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 02 AI Product ===================== -->
+  <section class="section section-tint" id="ai-product">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">AI 产品</p>
+        <h2>AI 正在进入企业的不同环节</h2>
+        <p class="section-desc">从经营决策，到获客、内容生产，再到企业内部应用，选择适合企业实际需求的 AI 工具。</p>
+      </div>
+
+      <div class="showcase">
+        <article class="product product-featured" data-reveal>
+          <p class="product-origin">代理 / 合作产品</p>
+          <p class="product-role">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            AI 决策伙伴
+          </p>
+          <h3 class="product-name">NBBOSS</h3>
+          <p class="product-desc">面向企业经营者的 AI 决策与工作伙伴，把 AI 带进日常经营与管理。</p>
+          <a class="product-link" href="https://www.nbboss.ai/" target="_blank" rel="noopener noreferrer">了解产品
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            <span class="sr-only">（在新标签页打开）</span>
+          </a>
+        </article>
+
+        <article class="product" data-reveal>
+          <p class="product-origin">代理 / 合作产品</p>
+          <p class="product-role">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            AI 获客与销售
+          </p>
+          <h3 class="product-name">AI 外呼</h3>
+          <p class="product-desc">让 AI 进入企业的客户触达与销售环节。</p>
+          <p class="product-note">当前合作产品形态为 AI 外呼手机（福马 AI）。</p>
+          <a class="product-link" href="https://fuma-ai.ok.kimi.link/" target="_blank" rel="noopener noreferrer">了解产品
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            <span class="sr-only">（在新标签页打开）</span>
+          </a>
+        </article>
+
+        <article class="product" data-reveal>
+          <p class="product-origin">代理 / 合作产品</p>
+          <p class="product-role">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2"/></svg>
+            AI 内容生产
+          </p>
+          <h3 class="product-name">零一数字人</h3>
+          <p class="product-desc">用 AI 降低企业持续生产内容的门槛，覆盖短视频与数字人内容场景。</p>
+          <a class="product-link" href="https://agent.zeroone.chat/" target="_blank" rel="noopener noreferrer">了解产品
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            <span class="sr-only">（在新标签页打开）</span>
+          </a>
+        </article>
+
+        <article class="product product-platform" data-reveal>
+          <p class="product-origin">代理 / 合作产品</p>
+          <p class="product-role">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+            企业级 AI 应用平台
+          </p>
+          <h3 class="product-name">厉害猫 AI</h3>
+          <p class="product-desc">从 AI 工具到业务流程，作为企业 AI 应用的底层平台之一。</p>
+          <a class="product-link" href="https://www.lihaimao.com/" target="_blank" rel="noopener noreferrer">了解产品
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            <span class="sr-only">（在新标签页打开）</span>
+          </a>
+        </article>
+      </div>
+
+      <p class="showcase-note" data-reveal>以上产品为义云科技代理或合作的第三方产品，产品能力与数据以各产品官方为准。</p>
+    </div>
+  </section>
+
+  <!-- ===================== 03 AI Application ===================== -->
+  <section class="section" id="ai-application">
+    <div class="container">
+      <div class="split-45-55">
+        <div class="sticky-col" data-reveal>
+          <p class="eyebrow">AI 应用</p>
+          <h2>AI 可以进入企业哪些环节？</h2>
+          <p class="section-desc">不从技术开始，而从企业真正遇到的问题开始。</p>
+          <p class="big-statement">先找到问题，<br><em>再决定 AI。</em></p>
+        </div>
+        <div>
+          <div class="scenario-list">
+            <div class="scenario" data-reveal>
+              <span class="scenario-num">01</span>
+              <div class="scenario-body">
+                <p class="scenario-title">决策</p>
+                <p class="scenario-desc">管理者如何让 AI 参与经营判断？探索 AI 在经营信息汇总、数据整理与管理决策辅助中的应用。</p>
+                <p class="scenario-rel">相关产品：<b>NBBOSS</b></p>
+              </div>
+              <svg class="scenario-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </div>
+            <div class="scenario" data-reveal>
+              <span class="scenario-num">02</span>
+              <div class="scenario-body">
+                <p class="scenario-title">获客</p>
+                <p class="scenario-desc">如何降低获客成本？从线索获取、客户触达和内容传播等环节寻找 AI 可以发挥作用的地方。</p>
+                <p class="scenario-rel">相关产品：<b>AI 外呼</b></p>
+              </div>
+              <svg class="scenario-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </div>
+            <div class="scenario" data-reveal>
+              <span class="scenario-num">03</span>
+              <div class="scenario-body">
+                <p class="scenario-title">销售</p>
+                <p class="scenario-desc">如何让销售团队获得更多有效信息？探索 AI 在客户信息整理、沟通辅助、销售内容和重复工作中的应用。</p>
+                <p class="scenario-rel">相关产品：<b>AI 外呼</b></p>
+              </div>
+              <svg class="scenario-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </div>
+            <div class="scenario" data-reveal>
+              <span class="scenario-num">04</span>
+              <div class="scenario-body">
+                <p class="scenario-title">内容</p>
+                <p class="scenario-desc">如何提高内容生产效率？探索 AI 在文案、图片、视频、数字人和内容流程中的应用。</p>
+                <p class="scenario-rel">相关产品：<b>零一数字人</b></p>
+              </div>
+              <svg class="scenario-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </div>
+            <div class="scenario" data-reveal>
+              <span class="scenario-num">05</span>
+              <div class="scenario-body">
+                <p class="scenario-title">办公</p>
+                <p class="scenario-desc">哪些重复工作可以交给 AI？从日常信息处理、文档、数据和流程中寻找适合自动化的工作，包括企业知识的整理与检索。</p>
+                <p class="scenario-rel">相关产品：<b>厉害猫 AI</b></p>
+              </div>
+              <svg class="scenario-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </div>
+            <div class="scenario" data-reveal>
+              <span class="scenario-num">06</span>
+              <div class="scenario-body">
+                <p class="scenario-title">管理</p>
+                <p class="scenario-desc">管理者如何知道 AI 到底能做什么？从企业实际管理问题出发，帮助管理者认识 AI 的能力边界和可能的应用方式。</p>
+                <p class="scenario-rel">相关产品：<b>厉害猫 AI</b></p>
+              </div>
+              <svg class="scenario-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="bottom-cta" data-reveal>
+            <p>你的企业正在遇到什么问题？</p>
+            <a class="btn btn-dark" href="#contact" data-contact-cta data-pending>和我们聊聊
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 04 AI Implementation ===================== -->
+  <section class="section section-tint" id="ai-implementation">
+    <div class="container">
+      <div class="impl-intro" data-reveal>
+        <h2>一个产品不是终点</h2>
+        <div class="prose">
+          <p>企业真正需要的，不只是购买一个 AI 工具。</p>
+          <p>更重要的是找到适合自己的工具，并让它进入真实的工作流程。</p>
+          <p>从产品体验、团队培训，到具体业务场景的应用，我们希望陪企业把 AI 从「知道」变成「用起来」。</p>
+        </div>
+      </div>
+
+      <div class="section-head impl-head" data-reveal>
+        <p class="eyebrow">服务方式</p>
+        <h2>从一个问题开始</h2>
+        <p class="section-desc">技术只是手段，真正重要的是解决企业的问题。</p>
+      </div>
+
+      <div class="process">
+        <div class="process-item" data-reveal>
+          <p class="process-num">01</p>
+          <h3>了解</h3>
+          <p>了解企业当前的业务、团队和实际问题。</p>
+        </div>
+        <div class="process-item" data-reveal>
+          <p class="process-num">02</p>
+          <h3>判断</h3>
+          <p>判断哪些问题适合使用 AI，哪些问题并不需要 AI。</p>
+        </div>
+        <div class="process-item" data-reveal>
+          <p class="process-num">03</p>
+          <h3>选择</h3>
+          <p>在已合作的产品中选择合适的工具，或组合多个工具。</p>
+        </div>
+        <div class="process-item" data-reveal>
+          <p class="process-num">04</p>
+          <h3>尝试</h3>
+          <p>在小范围内完成配置、培训与验证。</p>
+        </div>
+        <div class="process-item" data-reveal>
+          <p class="process-num">05</p>
+          <h3>落地</h3>
+          <p>验证有效后，再进入实际业务流程并持续优化。</p>
+        </div>
+      </div>
+
+      <div class="contact-topics service-forms" data-reveal>
+        <span class="tag">产品体验</span>
+        <span class="tag">企业培训</span>
+        <span class="tag">AI 工作坊</span>
+        <span class="tag">场景落地</span>
+        <span class="tag">持续优化</span>
+      </div>
+
+      <p class="process-note" data-reveal>不是为了 AI 而 AI。</p>
+    </div>
+  </section>
+
+  <!-- ===================== 05 Digital Infrastructure ===================== -->
+  <section class="section section-tint-blue" id="infrastructure">
+    <div class="container split-50-50">
+      <div data-reveal>
+        <p class="eyebrow">企业数字化</p>
+        <h2>从物理空间，到数字空间</h2>
+        <div class="prose" style="margin-top:28px">
+          <p>我们并不是从 AI 开始。</p>
+          <p>长期以来，我们一直参与企业办公空间、弱电工程和智慧楼宇相关业务。</p>
+          <p>今天，我们正在把这种“让企业更智能”的能力，从办公空间进一步延伸到企业经营和工作方式本身。</p>
+        </div>
+      </div>
+      <div data-reveal>
+        <ol class="ladder">
+          <li class="ladder-item">
+            <span class="ladder-node">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/></svg>
+            </span>
+            <span class="ladder-text">
+              <span class="ladder-label">楼宇</span>
+              <span class="ladder-sub">建筑与园区</span>
+            </span>
+            <span class="ladder-num">01</span>
+          </li>
+          <li class="ladder-item">
+            <span class="ladder-node">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 12h18"/><path d="M12 3v18"/></svg>
+            </span>
+            <span class="ladder-text">
+              <span class="ladder-label">空间</span>
+              <span class="ladder-sub">办公与经营场所</span>
+            </span>
+            <span class="ladder-num">02</span>
+          </li>
+          <li class="ladder-item">
+            <span class="ladder-node">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+            </span>
+            <span class="ladder-text">
+              <span class="ladder-label">设备</span>
+              <span class="ladder-sub">弱电与终端设备</span>
+            </span>
+            <span class="ladder-num">03</span>
+          </li>
+          <li class="ladder-item">
+            <span class="ladder-node">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+            </span>
+            <span class="ladder-text">
+              <span class="ladder-label">数据</span>
+              <span class="ladder-sub">采集与联通</span>
+            </span>
+            <span class="ladder-num">04</span>
+          </li>
+          <li class="ladder-item is-final">
+            <span class="ladder-node">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+            </span>
+            <span class="ladder-text">
+              <span class="ladder-label">智能</span>
+              <span class="ladder-sub">AI 进入实际业务</span>
+            </span>
+            <span class="ladder-num">05</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 06 About ===================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div data-reveal>
+          <p class="eyebrow">关于义云</p>
+          <h2>关于义云科技</h2>
+        </div>
+        <div class="prose" data-reveal>
+          <p>四川义云科技有限公司是一家面向企业客户的数字化服务公司。</p>
+          <p>公司业务覆盖企业数字化、智能化办公、智慧楼宇及相关技术服务。</p>
+          <p>我们并不是从 AI 开始。长期以来，我们一直参与企业办公空间、弱电工程和智慧楼宇相关业务。</p>
+          <p>随着人工智能技术快速进入企业，我们正在把这种“让企业更智能”的能力，从办公空间延伸到企业经营和工作方式本身，并进一步延伸至 AI 产品、AI 应用和落地服务。</p>
+          <p>我们关注的不只是新技术本身，更关注：</p>
+          <p class="lead">技术能不能进入真实的企业。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 07 Contact ===================== -->
+  <section class="section section-tint contact" id="contact">
+    <div class="container">
+      <p class="eyebrow" data-reveal>先聊问题</p>
+      <h2 data-reveal>有一个企业问题，想试试 AI？</h2>
+      <p class="contact-desc" data-reveal>不需要先想清楚解决方案，从你正在遇到的问题开始。</p>
+      <div class="contact-topics" data-reveal>
+        <span class="tag">AI 产品与选型</span>
+        <span class="tag">企业培训与活动</span>
+        <span class="tag">AI 应用落地</span>
+      </div>
+      <div data-reveal data-pending>
+        <a class="btn btn-dark" href="#contact" data-contact-cta>和我们聊聊
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <p class="contact-meta" data-reveal>四川义云科技有限公司</p>
+      <ul class="contact-list" id="contactList" data-reveal></ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== 08 Footer ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p class="footer-brand-cn">义云科技</p>
+        <p class="footer-brand-en">YIYUN TECHNOLOGY</p>
+        <p>让 AI 和数字技术真正进入企业。</p>
+      </div>
+      <div class="footer-col">
+        <h3>业务方向</h3>
+        <ul>
+          <li><a href="#ai-product">AI 产品与选型</a></li>
+          <li><a href="#ai-implementation">AI 应用落地</a></li>
+          <li><a href="#contact">企业 AI 培训与活动</a></li>
+          <li><a href="#infrastructure">智慧楼宇与智能办公</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>关于</h3>
+        <ul>
+          <li><a href="#about">关于义云</a></li>
+          <li><a href="#contact">联系我们</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 四川义云科技有限公司</span>
+      <span data-icp></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.config.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

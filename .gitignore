@@ -1,0 +1,11 @@
+# 项目本地数据（非源码，不入库）
+.workbuddy/
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
+# 编辑器/IDE 缓存
+*.swp
+.idea/
+.vscode/
