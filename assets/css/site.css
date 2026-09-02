@@ -1,6 +1,6 @@
 /* ==========================================================================
    四川义云科技有限公司官网 v3 — 参考设计稿布局
-   结构：Hero 大图 / 产品截图卡片 / 场景图标网格 / 横向流程 / 图片化基础设施 / 深色统计栏 / 深色 Contact / 多栏 Footer
+   结构：Hero 大图 / 产品截图卡片 / 场景图标网格 / 横向流程 / 图片化基础设施 / 深色 Contact / 多栏 Footer
    图片占位：所有 product-media、infra-card 图片区域使用占位块，等真实素材替换。
    ========================================================================== */
 
@@ -14,7 +14,7 @@
   --bg-tint-blue:#E8EEFC;
   --bg-tint-warm:#FAF8F4;
 
-  /* 深色：统计栏 / Contact / Footer */
+  /* 深色：Contact / Footer */
   --dark:#050816;
   --dark-2:#0B1225;
   --dark-fg:#F7F9FC;
@@ -158,17 +158,16 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
 .hero-trust span{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-xs);color:var(--muted)}
 .hero-trust svg{width:16px;height:16px;color:var(--blue)}
 
+.hero-bar{display:block;width:46px;height:4px;border-radius:2px;margin:20px auto 0;background:linear-gradient(90deg,var(--blue),#22D3EE)}
 .hero-visual{position:relative;min-height:280px;display:flex;align-items:center;justify-content:center}
-.hero-city{width:100%;max-width:540px;height:auto;border-radius:var(--radius);box-shadow:0 20px 60px -24px rgba(59,107,255,.25)}
-.hero-float{position:absolute;display:flex;align-items:center;justify-content:center;
-  width:48px;height:48px;border-radius:14px;background:#fff;box-shadow:0 8px 24px rgba(59,107,255,.18);
-  color:var(--blue);animation:float 6s ease-in-out infinite}
-.hero-float svg{width:22px;height:22px}
-.hero-float-1{top:4%;right:8%;width:auto;gap:6px;padding:0 14px;font-size:14px;font-weight:700}
-.hero-float-2{top:22%;left:6%;animation-delay:-1.5s}
-.hero-float-3{bottom:30%;left:2%;animation-delay:-3s}
-.hero-float-4{bottom:8%;right:14%;animation-delay:-4.5s}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero-illus{width:100%;max-width:560px;height:auto}
+/* Hero 插画动效：四张玻璃卡片轻柔悬浮 */
+.hf-c{animation:hfloat 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.hf-2{animation-delay:-1.6s}.hf-3{animation-delay:-3.1s}.hf-4{animation-delay:-4.6s}
+@keyframes hfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@media (prefers-reduced-motion:reduce){
+  .hf-c{animation:none}
+}
 
 /* ---------- 02 AI Product ---------- */
 .product-grid{display:grid;grid-template-columns:1fr;gap:20px}
@@ -250,16 +249,7 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
 .infra-card h4{font-size:var(--fs-sm);font-weight:600;padding:14px 14px 4px}
 .infra-card p{font-size:var(--fs-xs);color:var(--muted);padding:0 14px 14px}
 
-/* ---------- 06 Stats ---------- */
-.stats-bar{background:var(--dark);color:var(--dark-fg);padding:48px 0}
-.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
-.stat{display:flex;align-items:center;gap:14px}
-.stat-ico{width:44px;height:44px;border-radius:13px;background:rgba(255,255,255,.08);color:var(--blue-light);display:flex;align-items:center;justify-content:center;flex:none}
-.stat-ico svg{width:22px;height:22px}
-.stat-num{display:block;font-size:32px;font-weight:700;letter-spacing:-.02em;line-height:1}
-.stat-label{display:block;font-size:var(--fs-xs);color:var(--dark-muted);margin-top:6px}
-
-/* ---------- 07 Contact Dark ---------- */
+/* ---------- 06 Contact Dark ---------- */
 .contact-dark{position:relative;overflow:hidden;background:var(--dark);color:var(--dark-fg);padding:72px 0}
 .contact-glow{position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(60% 60% at 80% 50%,rgba(59,107,255,.18),transparent 70%),
@@ -313,6 +303,7 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
   .hero{padding:80px 0 72px}
   .hero-grid{grid-template-columns:1.05fr .95fr;gap:40px}
   .hero-copy{text-align:left}
+  .hero-bar{margin-left:0}
   .hero-desc{margin-left:0;margin-right:0}
   .hero-actions{justify-content:flex-start}
   .hero-trust{justify-content:flex-start}
@@ -326,8 +317,6 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
   .process-quote{flex:0 0 220px;margin-left:24px;border-radius:var(--radius)}
   .infra-grid{grid-template-columns:1fr 1fr;gap:48px;align-items:center}
   .infra-media-grid{gap:18px}
-  .stats-grid{grid-template-columns:repeat(4,1fr)}
-  .stat-num{font-size:38px}
   .contact-grid{grid-template-columns:1.1fr .9fr}
   .footer-grid{grid-template-columns:1.5fr repeat(4,1fr) auto;gap:32px}
 }
@@ -362,13 +351,12 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
   .hero{padding:100px 0 86px}
   .hero-grid{grid-template-columns:1fr 1fr;gap:60px}
   .hero-visual{min-height:360px}
-  .hero-city{max-width:600px}
+  .hero-illus{max-width:600px}
   .product-grid{grid-template-columns:repeat(4,1fr)}
   .scenario-grid{grid-template-columns:repeat(3,1fr)}
   .scenario-item{padding:26px 22px}
   .infra-grid{grid-template-columns:42% 58%;gap:64px}
   .infra-media-grid{gap:20px}
-  .stat-num{font-size:44px}
   .contact-actions{flex-wrap:nowrap}
 }
 
