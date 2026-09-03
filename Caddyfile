@@ -1,0 +1,20 @@
+# 义云科技官网 · Caddy 反向代理配置
+# 用法：把 yiyun.example.com 全部替换为你的真实主域名。
+# 每个子域名 = 服务器上的一个实例（docker compose 里的服务名）。
+# Caddy 会自动为每个域名申请并续期 HTTPS 证书（需 DNS 已解析到本机）。
+
+# 官网 → 主域名（服务 yiyun-web，内部端口 3000）
+yiyun.example.com {
+    encode gzip
+    reverse_proxy yiyun-web:3000
+}
+
+# 其他实例 → 子域名（示例：把注释打开，并把服务名/端口改成你的实例）
+# app-a.yiyun.example.com {
+#     encode gzip
+#     reverse_proxy app-a:8000
+# }
+# app-b.yiyun.example.com {
+#     encode gzip
+#     reverse_proxy app-b:5000
+# }

@@ -1,0 +1,28 @@
+# 本地与构建产物
+node_modules
+dist
+
+# 运行数据与备份（客户线索，勿打进镜像）
+data
+leads.json
+leads.json.tmp
+
+# 环境与密钥（勿进镜像）
+.env
+.env.local
+.env.*
+!.env.example
+
+# git 与本地工作区
+.git
+.workbuddy
+
+# 文档与部署配置（无需进镜像）
+*.md
+Dockerfile
+.dockerignore
+docker-compose.yml
+Caddyfile
+
+# 系统文件
+.DS_Store

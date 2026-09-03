@@ -1,0 +1,60 @@
+# 义云科技官网 · 多实例部署编排
+# 用法：cp .env.example .env 并填写 → 改 Caddyfile 域名 → docker compose up -d --build
+name: yiyuntech
+
+services:
+  # 官网实例（主域名）—— 由 server.js 提供静态页 + /api/leads 表单接口
+  yiyun-web:
+    build: .
+    restart: always
+    environment:
+      PORT: 3000
+      LEADS_FILE: /app/data/leads.json
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-1617762195@qq.com}
+      SMTP_HOST: ${SMTP_HOST:-smtp.qq.com}
+      SMTP_PORT: ${SMTP_PORT:-465}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SERVERCHAN_KEY: ${SERVERCHAN_KEY:-}
+      RATE_LIMIT_MAX: ${RATE_LIMIT_MAX:-5}
+    volumes:
+      # 客户线索持久化到宿主机的 ./data 目录，务必纳入备份
+      - ./data:/app/data
+    networks:
+      - yiyun-net
+    # 注意：不对外映射端口，只允许 Caddy 经内部网络访问，避免接口裸奔
+
+  # 反向代理（唯一对外开放端口）—— 按域名路由 + 自动 HTTPS
+  caddy:
+    image: caddy:2-alpine
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - yiyun-net
+
+  # ---- 其他实例在此追加（示例）----
+  # 多技术栈实例用不同镜像即可，例如 Python：
+  # app-a:
+  #   image: python:3.12-slim
+  #   restart: always
+  #   working_dir: /srv
+  #   command: ["python", "app.py"]
+  #   volumes:
+  #     - ./apps/app-a:/srv
+  #   networks:
+  #     - yiyun-net
+  # 然后在 Caddyfile 里加一条子域名规则：app-a.你的域名 -> app-a:8000
+
+networks:
+  yiyun-net:
+    driver: bridge
+
+volumes:
+  caddy_data:
+  caddy_config:
