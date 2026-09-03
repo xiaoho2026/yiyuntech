@@ -15,9 +15,10 @@ window.SITE_CONFIG = {
 
   // 联系方式。全部留空时，CTA 不指向任何地址并标记「待配置」
   contact: {
-    phone: '',           // 例：'028-8888 8888'
-    email: '',           // 例：'hello@example.com'
-    wechat: '',          // 微信号
-    address: '四川 · 成都' // 已确认信息，可按需细化
+    phone: '',                      // 电话号码（暂不提供）
+    email: '1617762195@qq.com',     // 管理员接收邮箱（支持手机微信【QQ邮箱提醒】秒级通知）
+    wechat: 'nbboss2026',           // 业务负责人微信号（企业数智化专家）
+    wechatQr: 'assets/images/wechat-qr.png', // 微信二维码图片
+    address: '四川 · 成都'           // 办公地址
   }
 };

@@ -1,0 +1,6 @@
+{
+  "name": "四川义云科技有限公司",
+  "description": "让 AI 和数智技术真正进入企业 —— 企业 AI 落地、数智化转型与弱电工程服务官网",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

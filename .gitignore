@@ -1,5 +1,8 @@
 # 项目本地数据（非源码，不入库）
 .workbuddy/
+dist/
+node_modules/
+bun.lock
 
 # 操作系统文件
 .DS_Store
