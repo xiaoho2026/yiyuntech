@@ -1,0 +1,9 @@
+# ⚠️ 备案期间临时覆盖配置：把官网 3000 端口映射到公网
+# 用途：域名未备案时，用 http://服务器公网IP:3000 临时访问验证官网
+# 生效方式：docker compose 会自动合并本文件（无需手动改 docker-compose.yml）
+# 注意：备案通过后，删除本文件（或改名为 docker-compose.override.yml.example），
+#       恢复由 Caddy 统一走 80/443 入口。
+services:
+  yiyun-web:
+    ports:
+      - "3000:3000"
