@@ -25,13 +25,26 @@
 
 ## 一、服务器准备（一次性）
 
-1. 购买一台云服务器（2C2G 起步足够，官网很轻）。
-2. 安装 Docker 与 Docker Compose 插件：
-   ```bash
-   curl -fsSL https://get.docker.com | sh
-   sudo systemctl enable --now docker
-   ```
-3. 开放防火墙端口：`80`、`443`（只需这两个，其他端口不对外）。
+> 服务器是 **Ubuntu** 的话，用仓库里的一键脚本最省事（含国内阿里云镜像加速）：
+
+```bash
+# 在项目目录里执行（需 root）
+sudo bash deploy-ubuntu.sh
+```
+
+脚本会自动完成：安装 Docker + Compose 插件 → 开机自启 → 放行防火墙 80/443 →
+打印后续 4 步（配置 .env / 改 Caddyfile 域名 / 配 DNS / 构建启动）。
+
+如果是其他 Linux 发行版，手动安装：
+
+```bash
+# 国内网络推荐加 --mirror Aliyun 参数（否则官方源常超时）
+curl -fsSL https://get.docker.com | sh -s -- --mirror Aliyun
+sudo systemctl enable --now docker
+```
+
+开放防火墙端口：`80`、`443`（只需这两个，其他端口不对外）。
+注意：云服务器还需在**云厂商控制台的"安全组"**里放行 80/443，这一步在服务器内开 ufw 不生效。
 
 ## 二、把官网跑起来
 
