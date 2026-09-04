@@ -189,7 +189,8 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:center right;
+  /* 垂直方向从贴底部上移 24px：露出图片上部（右上方的云图形）；底部由 cover 自然裁剪，hero 高度不变；水平保持居中 */
+  object-position:center calc(100% - 24px);
   filter:saturate(1.04) contrast(1.02);
 }
 /* 左侧高质感定向雾化：仅覆盖左侧文案区域(0%~42%)，向右在55%前彻底完全变为0透明度，右上侧业务云端及悬浮图标100%原图呈现无任何遮挡或模糊 */
