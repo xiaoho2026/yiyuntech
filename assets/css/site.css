@@ -1520,9 +1520,20 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
     left:max(0px, calc(100% - var(--img-w)));
     right:calc(var(--img-w) / 2);
     width:auto;
-    /* 较长且平滑的过渡：图片左缘到 fog 35% 纯白(浅蓝隐藏)，35%→中线 平滑渐显图片，
-       过渡柔和无突变，右侧建筑+云原样 */
-    background:linear-gradient(
+    /* 顶部区域内水平增强白雾(background-size 限制仅顶部45%高度，叠加在主渐变上)：
+       图片顶部是大面积纯色浅蓝天空，主渐变下透明度一降天空便整片"突然出现"，
+       显得顶部过渡窄快；该层把顶部天空的水平显现延迟到更靠中线，
+       使顶部过渡变得与中间(建筑/道路)一致宽缓；天空仍可见、不会盖成空白。
+       右侧建筑+云(图片右半)不受影响 */
+    background:
+      linear-gradient(90deg,
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,0.95) 35%,
+        rgba(255,255,255,0.72) 62%,
+        rgba(255,255,255,0.4) 82%,
+        rgba(255,255,255,0.12) 95%,
+        transparent 100%) 0 0 / 100% 55% no-repeat,
+      linear-gradient(
       90deg,
       rgba(255,255,255,1) 0%,
       rgba(255,255,255,1) 35%,
