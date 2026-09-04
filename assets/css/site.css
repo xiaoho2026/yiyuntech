@@ -1529,13 +1529,9 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
       transparent 100%
     );
   }
-  /* 电脑端底部雾化只覆盖左侧文字区下方，右侧图片下侧保持完整可见（阶梯起点全高呈现） */
-  .hero-bg-fog-bottom{
-    left:0;
-    right:auto;
-    width:min(760px,62%);
-    height:44px;
-  }
+  /* 电脑端去掉底部雾化条：hero 为纯白底，直接衔接下方 #F8FAFC 板块，
+     避免在左下角形成有色差的浅灰白条 */
+  .hero-bg-fog-bottom{display:none}
 }
 /* 阶梯 1：平板 ~ 小笔记本（768–1279px） */
 @media (min-width:768px) and (max-width:1279px){
