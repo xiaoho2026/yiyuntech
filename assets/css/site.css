@@ -1520,12 +1520,15 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
     left:max(0px, calc(100% - var(--img-w)));
     right:calc(var(--img-w) / 2);
     width:auto;
+    /* 渐变集中在靠中线处快速过渡：图片左半绝大部分被纯白覆盖(不透出浅蓝、无竖条)，
+       仅接近中线处才透出图片，右侧建筑+云原样 */
     background:linear-gradient(
       90deg,
       rgba(255,255,255,1) 0%,
-      rgba(255,255,255,0.9) 30%,
-      rgba(255,255,255,0.65) 60%,
-      rgba(255,255,255,0.28) 84%,
+      rgba(255,255,255,1) 70%,
+      rgba(255,255,255,0.92) 80%,
+      rgba(255,255,255,0.62) 90%,
+      rgba(255,255,255,0.28) 97%,
       transparent 100%
     );
   }
@@ -1533,11 +1536,17 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
      避免在左下角形成有色差的浅灰白条 */
   .hero-bg-fog-bottom{display:none}
 }
-/* 阶梯 1：平板 ~ 小笔记本（768–1279px） */
-@media (min-width:768px) and (max-width:1279px){
+/* 阶梯 1a：平板 ~ 中小笔记本（768–1199px，hero 高 462 → 图片宽约 1030） */
+@media (min-width:768px) and (max-width:1199px){
   .hero{min-height:460px;padding:54px 0 50px}
   .hero-bg-img{object-position:right top}
   .hero-bg-fog-left{--img-w:1030px}
+}
+/* 阶梯 1b：1200–1279px 命中独立断点(h1 58px / min-height 480)，hero 实际约 500 → 图片宽约 1115 */
+@media (min-width:1200px) and (max-width:1279px){
+  .hero{min-height:480px;padding:60px 0 56px}
+  .hero-bg-img{object-position:right top}
+  .hero-bg-fog-left{--img-w:1115px}
 }
 /* 阶梯 2：普通桌面（1280–1919px，覆盖 1080p 1920） */
 @media (min-width:1280px) and (max-width:1919px){
