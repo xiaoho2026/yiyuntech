@@ -174,16 +174,13 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
 }
 
 /* 全景大图背景与多层雾化渐变系统
-   背景图宽度与 .container 完全一致(同 min(1120,100%-32px)、同居中)，
-   使背景图边缘与内容布局在任何屏幕宽度下都对齐，宽屏不再无限向两侧延展；
-   两侧露出浅色页面背景 */
+   背景图全宽铺满 hero（edge-to-edge，行业规范做法），无两侧留白；
+   hero-bg-img 通过 object-position:right 把建筑+云固定在右侧可见区，
+   宽屏只裁左侧次要背景，关键视觉元素不丢失；左侧文字由 fog-left 雾化保证可读 */
 .hero-bg-layer{
   position:absolute;
-  top:0;
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:min(var(--container-max),calc(100% - 32px));
+  inset:0;
+  width:100%;
   height:100%;
   pointer-events:none;
   z-index:0;
@@ -195,8 +192,9 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
   width:100%;
   height:100%;
   object-fit:cover;
-  /* 垂直方向从贴底部上移 24px：露出图片上部（右上方的云图形）；底部由 cover 自然裁剪，hero 高度不变；水平保持居中 */
-  object-position:center calc(100% - 24px);
+  /* 水平右侧固定：建筑+云始终贴右侧可见，宽屏只裁左侧次要背景；
+     垂直上移 24px 露出右上云图形；底部由 cover 自然裁剪，hero 高度不变 */
+  object-position:right calc(100% - 24px);
   filter:saturate(1.04) contrast(1.02);
 }
 /* 左侧高质感定向雾化：仅覆盖左侧文案区域(0%~42%)，向右在55%前彻底完全变为0透明度，右上侧业务云端及悬浮图标100%原图呈现无任何遮挡或模糊 */
@@ -1422,7 +1420,6 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
     --section-y:80px;
   }
   .container{width:min(var(--container-max),calc(100% - 48px))}
-  .hero-bg-layer{width:min(var(--container-max),calc(100% - 48px))}
   .header-inner{height:68px}
   .btn-contact{display:inline-flex}
   .menu-toggle{display:none}
@@ -1474,7 +1471,6 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
     --section-y:100px;
   }
   .container{width:min(var(--container-max),calc(100% - 64px))}
-  .hero-bg-layer{width:min(var(--container-max),calc(100% - 64px))}
   .nav-desktop{gap:2px}
   .nav-desktop a{padding:6px 14px}
   .hero{padding:60px 0 56px;min-height:480px}
