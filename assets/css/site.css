@@ -169,14 +169,11 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
   display:flex;
   align-items:center;
   padding:48px 0 44px;
-  background:#F8FAFC;
+  background:#0B132B;
   border-bottom:1px solid rgba(226,232,240,0.8);
 }
 
-/* 全景大图背景与多层雾化渐变系统
-   背景图全宽铺满 hero（edge-to-edge，行业规范做法），无两侧留白；
-   hero-bg-img 通过 object-position:right 把建筑+云固定在右侧可见区，
-   宽屏只裁左侧次要背景，关键视觉元素不丢失；左侧文字由 fog-left 雾化保证可读 */
+/* 全景大图背景与多层雾化渐变系统 */
 .hero-bg-layer{
   position:absolute;
   inset:0;
@@ -192,9 +189,7 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
   width:100%;
   height:100%;
   object-fit:cover;
-  /* 水平右侧固定：建筑+云始终贴右侧可见，宽屏只裁左侧次要背景；
-     垂直上移 24px 露出右上云图形；底部由 cover 自然裁剪，hero 高度不变 */
-  object-position:right calc(100% - 24px);
+  object-position:center right;
   filter:saturate(1.04) contrast(1.02);
 }
 /* 左侧高质感定向雾化：仅覆盖左侧文案区域(0%~42%)，向右在55%前彻底完全变为0透明度，右上侧业务云端及悬浮图标100%原图呈现无任何遮挡或模糊 */
@@ -203,15 +198,13 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
   top:0;
   bottom:0;
   left:0;
-  /* 自适应：窄屏按 60% 覆盖，宽屏收敛到 760px 固定宽度——
-     只覆盖左侧文字区，不再随屏幕无限延伸侵染右侧建筑云区 */
-  width:min(760px,60%);
+  width:60%;
   background:linear-gradient(
     90deg,
-    rgba(255,255,255,0.97) 0%,
+    rgba(255,255,255,0.96) 0%,
     rgba(255,255,255,0.92) 35%,
-    rgba(255,255,255,0.72) 58%,
-    rgba(240,245,255,0.28) 78%,
+    rgba(255,255,255,0.70) 58%,
+    rgba(240,245,255,0.25) 78%,
     transparent 100%
   );
   pointer-events:none;
@@ -230,6 +223,7 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
 .hero-container{
   position:relative;
   z-index:2;
+  width:100%;
 }
 .hero-copy{
   max-width:580px;
