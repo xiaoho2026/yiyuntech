@@ -1498,8 +1498,19 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
     width:100%;
     border-radius:0;
   }
-  /* 电脑端统一以右上角为原点：云+建筑固定在右上可见区，宽屏只裁左下次要背景 */
-  .hero-bg-img{object-position:right top}
+  /* 电脑端背景图高度=hero 高度（垂直全高、不裁切），宽度按原图比例自动；
+     以右上角为原点、右缘贴右，宽屏只裁左下次要背景 */
+  .hero-bg-img{
+    left:auto;
+    right:0;
+    top:0;
+    bottom:auto;
+    width:auto;
+    max-width:none;
+    height:100%;
+    object-fit:fill;
+    object-position:right top;
+  }
   /* 电脑端底部雾化只覆盖左侧文字区下方，右侧图片下侧保持完整可见（阶梯起点全高呈现） */
   .hero-bg-fog-bottom{
     left:0;
