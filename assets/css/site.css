@@ -1489,34 +1489,37 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
 @media (min-width:768px){
   /* 电脑端统一以右上角为原点：云+建筑固定在右上可见区，宽屏只裁左下次要背景 */
   .hero-bg-img{object-position:right top}
+  /* 电脑端底部雾化只覆盖左侧文字区下方，右侧图片下侧保持完整可见（阶梯起点全高呈现） */
+  .hero-bg-fog-bottom{
+    left:0;
+    right:auto;
+    width:min(760px,62%);
+    height:44px;
+  }
 }
 /* 阶梯 1：平板 ~ 小笔记本（768–1279px） */
 @media (min-width:768px) and (max-width:1279px){
   .hero{min-height:460px;padding:54px 0 50px}
   .hero-bg-img{object-position:right 8%}
   .hero-bg-fog-left{width:68%}
-  .hero-bg-fog-bottom{height:52px}
 }
 /* 阶梯 2：普通桌面（1280–1919px，覆盖 1080p 1920） */
 @media (min-width:1280px) and (max-width:1919px){
   .hero{min-height:500px;padding:60px 0 54px}
   .hero-bg-img{object-position:right top}
   .hero-bg-fog-left{width:62%}
-  .hero-bg-fog-bottom{height:60px}
 }
 /* 阶梯 3：大屏（1920–2559px） */
 @media (min-width:1920px) and (max-width:2559px){
   .hero{min-height:540px;padding:64px 0 58px}
   .hero-bg-img{object-position:right top}
   .hero-bg-fog-left{width:57%}
-  .hero-bg-fog-bottom{height:68px}
 }
 /* 阶梯 4：超宽屏（≥2560px，2K/4K） */
 @media (min-width:2560px){
   .hero{min-height:600px;padding:72px 0 64px}
   .hero-bg-img{object-position:right top}
   .hero-bg-fog-left{width:55%}
-  .hero-bg-fog-bottom{height:80px}
 }
 
 @media (max-width:420px){
