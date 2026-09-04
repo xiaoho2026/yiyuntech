@@ -203,13 +203,15 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
   top:0;
   bottom:0;
   left:0;
-  width:60%;
+  /* 自适应：窄屏按 60% 覆盖，宽屏收敛到 760px 固定宽度——
+     只覆盖左侧文字区，不再随屏幕无限延伸侵染右侧建筑云区 */
+  width:min(760px,60%);
   background:linear-gradient(
     90deg,
-    rgba(255,255,255,0.96) 0%,
+    rgba(255,255,255,0.97) 0%,
     rgba(255,255,255,0.92) 35%,
-    rgba(255,255,255,0.70) 58%,
-    rgba(240,245,255,0.25) 78%,
+    rgba(255,255,255,0.72) 58%,
+    rgba(240,245,255,0.28) 78%,
     transparent 100%
   );
   pointer-events:none;
