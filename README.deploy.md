@@ -11,11 +11,11 @@
 ```
 公网访客 → 主域名/子域名（HTTPS）→ Caddy（唯一对外开放 80/443）
 
-&#x20;                                      ├─ 主域名     → yiyun-web:3000（官网，含表单接口）
+\&#x20;                                      ├─ 主域名     → yiyun-web:3000（官网，含表单接口）
 
-&#x20;                                      ├─ 子域名 A   → app-a:8000（你的其他实例）
+\&#x20;                                      ├─ 子域名 A   → app-a:8000（你的其他实例）
 
-&#x20;                                      └─ 子域名 B   → app-b:5000（你的其他实例）
+\&#x20;                                      └─ 子域名 B   → app-b:5000（你的其他实例）
 ```
 
 ## 目录文件说明
@@ -33,16 +33,14 @@
 
 ## 一、服务器准备（一次性）
 
-> 服务器是 
->
+> 服务器是
 > **Ubuntu**
->
->  的话，用仓库里的一键脚本最省事（含国内阿里云镜像加速）：
+> 的话，用仓库里的一键脚本最省事（含国内阿里云镜像加速）：
 
 
 
 ```
-\# 在项目目录里执行（需 root）
+\\# 在项目目录里执行（需 root）
 
 sudo bash deploy-ubuntu.sh
 ```
@@ -56,7 +54,7 @@ sudo bash deploy-ubuntu.sh
 
 
 ```
-\# 国内网络推荐加 --mirror Aliyun 参数（否则官方源常超时）
+\\# 国内网络推荐加 --mirror Aliyun 参数（否则官方源常超时）
 
 curl -fsSL https://get.docker.com | sh -s -- --mirror Aliyun
 
@@ -69,23 +67,39 @@ sudo systemctl enable --now docker
 
 ## 〇、域名未备案？先这样上线
 
-国内云厂商（腾讯云/阿里云）大陆节点会拦截**未备案域名**的 80/443 访问。
+国内云厂商（腾讯云 / 阿里云）大陆节点会拦截**未备案域名**的 80/443 访问。
+
 所以备案通过前，先把官网部署好、用 **IP + 端口** 临时访问验证，等备案通过再绑域名。
 
 备案期间上线流程：
 
+
+
 1. 先只启动官网（不起 Caddy）：
-   ```bash
-   docker compose up -d --build yiyun-web
-   ```
-2. 用仓库里的 `docker-compose.override.yml`（会自动合并，把官网 3000 端口暴露到公网）：
+
+
+
+```
+docker compose up -d --build yiyun-web
+```
+
+
+
+1. 用仓库里的 `docker-compose.override.yml`（会自动合并，把官网 3000 端口暴露到公网）：
+
    无需手动改 `docker-compose.yml`。
-3. 在腾讯云控制台「防火墙」放行 `3000` 端口。
-4. 浏览器访问 `http://服务器公网IP:3000` 验证（页面 + 表单都要试）。
-5. **备案通过后**正式上线：
-   - 删除 `docker-compose.override.yml`
-   - 改 `Caddyfile` 域名 → 域名商配 DNS → 控制台放行 80/443
-   - `docker compose up -d --build`（全量启动，含 Caddy 自动 HTTPS）
+
+2. 在腾讯云控制台「防火墙」放行 `3000` 端口。
+
+3. 浏览器访问 `http://服务器公网IP:3000` 验证（页面 + 表单都要试）。
+
+4. **备案通过后**正式上线：
+
+* 删除 `docker-compose.override.yml`
+
+* 改 `Caddyfile` 域名 → 域名商配 DNS → 控制台放行 80/443
+
+* `docker compose up -d --build`（全量启动，含 Caddy 自动 HTTPS）
 
 ## 二、把官网跑起来
 
@@ -100,7 +114,7 @@ sudo systemctl enable --now docker
 ```
 cp .env.example .env
 
-nano .env     # 填 SMTP\_PASS（QQ邮箱授权码）、SERVERCHAN\_KEY（可选）等
+nano .env     # 填 SMTP\\\_PASS（QQ邮箱授权码）、SERVERCHAN\\\_KEY（可选）等
 ```
 
 
@@ -184,9 +198,9 @@ docker compose down               # 停止（不会删数据卷）
 ```
 crontab -e
 
-\# 每天 2 点把线索与配置打包备份
+\\# 每天 2 点把线索与配置打包备份
 
-0 2 \* \* \* tar -czf /backup/yiyun-\$(date +\\%F).tar.gz -C /opt/yiyun data .env Caddyfile
+0 2 \\\* \\\* \\\* tar -czf /backup/yiyun-\\\$(date +\\\\%F).tar.gz -C /opt/yiyun data .env Caddyfile
 ```
 
 也可同步一份到对象存储 / 网盘，双保险。
