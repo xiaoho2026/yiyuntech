@@ -169,15 +169,21 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
   display:flex;
   align-items:center;
   padding:48px 0 44px;
-  background:#0B132B;
+  background:#F8FAFC;
   border-bottom:1px solid rgba(226,232,240,0.8);
 }
 
-/* 全景大图背景与多层雾化渐变系统 */
+/* 全景大图背景与多层雾化渐变系统
+   背景图宽度与 .container 完全一致(同 min(1120,100%-32px)、同居中)，
+   使背景图边缘与内容布局在任何屏幕宽度下都对齐，宽屏不再无限向两侧延展；
+   两侧露出浅色页面背景 */
 .hero-bg-layer{
   position:absolute;
-  inset:0;
-  width:100%;
+  top:0;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(var(--container-max),calc(100% - 32px));
   height:100%;
   pointer-events:none;
   z-index:0;
@@ -224,7 +230,6 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
 .hero-container{
   position:relative;
   z-index:2;
-  width:100%;
 }
 .hero-copy{
   max-width:580px;
@@ -1417,6 +1422,7 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
     --section-y:80px;
   }
   .container{width:min(var(--container-max),calc(100% - 48px))}
+  .hero-bg-layer{width:min(var(--container-max),calc(100% - 48px))}
   .header-inner{height:68px}
   .btn-contact{display:inline-flex}
   .menu-toggle{display:none}
@@ -1468,6 +1474,7 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
     --section-y:100px;
   }
   .container{width:min(var(--container-max),calc(100% - 64px))}
+  .hero-bg-layer{width:min(var(--container-max),calc(100% - 64px))}
   .nav-desktop{gap:2px}
   .nav-desktop a{padding:6px 14px}
   .hero{padding:60px 0 56px;min-height:480px}
