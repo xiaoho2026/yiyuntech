@@ -1512,6 +1512,23 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
     object-fit:fill;
     object-position:right top;
   }
+  /* 电脑端左侧雾化：从背景图左缘(左缘处=纯白，与 hero 白底完全一致、无分界线)
+     到背景图宽度中线白→透明渐变；左缘左侧为 hero 白底。
+     --img-w 按各档 hero 高×原图比例(2.229)在阶梯中覆盖 */
+  .hero-bg-fog-left{
+    --img-w:1030px;
+    left:max(0px, calc(100% - var(--img-w)));
+    right:calc(var(--img-w) / 2);
+    width:auto;
+    background:linear-gradient(
+      90deg,
+      rgba(255,255,255,1) 0%,
+      rgba(255,255,255,0.9) 30%,
+      rgba(255,255,255,0.65) 60%,
+      rgba(255,255,255,0.28) 84%,
+      transparent 100%
+    );
+  }
   /* 电脑端底部雾化只覆盖左侧文字区下方，右侧图片下侧保持完整可见（阶梯起点全高呈现） */
   .hero-bg-fog-bottom{
     left:0;
@@ -1524,25 +1541,25 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
 @media (min-width:768px) and (max-width:1279px){
   .hero{min-height:460px;padding:54px 0 50px}
   .hero-bg-img{object-position:right top}
-  .hero-bg-fog-left{right:514px;width:auto}
+  .hero-bg-fog-left{--img-w:1030px}
 }
 /* 阶梯 2：普通桌面（1280–1919px，覆盖 1080p 1920） */
 @media (min-width:1280px) and (max-width:1919px){
   .hero{min-height:500px;padding:60px 0 54px}
   .hero-bg-img{object-position:right top}
-  .hero-bg-fog-left{right:557px;width:auto}
+  .hero-bg-fog-left{--img-w:1115px}
 }
 /* 阶梯 3：大屏（1920–2559px） */
 @media (min-width:1920px) and (max-width:2559px){
   .hero{min-height:540px;padding:64px 0 58px}
   .hero-bg-img{object-position:right top}
-  .hero-bg-fog-left{right:602px;width:auto}
+  .hero-bg-fog-left{--img-w:1204px}
 }
 /* 阶梯 4：超宽屏（≥2560px，2K/4K） */
 @media (min-width:2560px){
   .hero{min-height:600px;padding:72px 0 64px}
   .hero-bg-img{object-position:right top}
-  .hero-bg-fog-left{right:669px;width:auto}
+  .hero-bg-fog-left{--img-w:1338px}
 }
 
 @media (max-width:420px){
