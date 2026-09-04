@@ -1487,19 +1487,18 @@ a:hover .arrow,.btn:hover .arrow{transform:translateX(3px)}
    保证各梯度下右侧建筑+云始终可见；左侧文字由雾化保证可读，底部雾化过渡到下一板块
    ========================================================================== */
 @media (min-width:768px){
-  /* 电脑端 hero 背景卡片化：限宽居中、比下方内容区左右各略宽一点、
-     两侧到屏幕边缘留约两字符距离；卡片内仍以右上角为原点、以 hero 高为高缩放 */
-  .hero{background:#F8FAFC}
+  /* 电脑端 hero 背景容器全宽（与屏幕同宽）、无圆角；
+     背景图以右上角为原点、以 hero 高为高缩放（cover 垂直全高、右缘贴右），
+     左侧留出深蓝底+雾化，右侧建筑+云始终完整 */
+  .hero{background:#0B132B}
   .hero-bg-layer{
-    left:50%;
-    right:auto;
-    transform:translateX(-50%);
-    /* 比内容区(1120)左右各宽 40px；窄屏优先贴近内容，宽屏两侧至少留两字符 */
-    width:min(calc(var(--container-max) + 80px), calc(100% - 40px));
-    background:#0B132B;
-    border-radius:20px;
+    left:0;
+    right:0;
+    transform:none;
+    width:100%;
+    border-radius:0;
   }
-  /* 电脑端统一以右上角为原点：云+建筑固定在卡片右上可见区，宽屏只裁左下次要背景 */
+  /* 电脑端统一以右上角为原点：云+建筑固定在右上可见区，宽屏只裁左下次要背景 */
   .hero-bg-img{object-position:right top}
   /* 电脑端底部雾化只覆盖左侧文字区下方，右侧图片下侧保持完整可见（阶梯起点全高呈现） */
   .hero-bg-fog-bottom{
